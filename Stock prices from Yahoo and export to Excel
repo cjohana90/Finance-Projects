@@ -1,0 +1,16 @@
+import datetime as dt
+from matplotlib import style
+from pandas_datareader import data as pdr
+import pandas as pd
+import xlsxwriter
+
+style.use('ggplot')
+
+start = dt.datetime(2017,1,1)
+end = dt.datetime(2018,12,31)
+
+data = pdr.get_data_yahoo('TSLA', start, end)
+
+export_excel=data.to_excel (r'C:\Users\ch170\PycharmProjects\stock pull\TSLA.xlsx')
+
+print(data.head())
